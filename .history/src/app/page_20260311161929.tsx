@@ -2,7 +2,34 @@ import { AppSidebar } from "@/components/app-sidebar"
 import { DataTable } from "@/components/data-table"
 import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
-import { getTableData } from "@/lib/api"
+
+interface Props {
+  params: Promise<{
+    id?: string
+  }>
+}
+
+async function getTableData() {
+  const res = await fetch("https://dummyjson.com/users?limit=100", {
+    cache: "no-store",
+  })
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data")
+  }
+
+  const { users } = await res.json()
+
+  return users.map((user: any) => ({
+    id: user.id,
+    header: `${user.firstName} ${user.lastName}`,
+    type: "User",
+    status: "Done",
+    target: user.age.toString(),
+    limit: "0",
+    reviewer: user.email,
+  }))
+}
 
 export default async function Home() {
   const data = await getTableData()
@@ -28,5 +55,5 @@ export default async function Home() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  );
+  )
 }

@@ -1,5 +1,6 @@
 "use client"
 
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
   closestCenter,
   DndContext,
@@ -12,7 +13,6 @@ import {
   type UniqueIdentifier,
 } from "@dnd-kit/core"
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
   arrayMove,
   SortableContext,
@@ -65,7 +65,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { useIsMobile } from "@/hooks/use-mobile"
 import {
   ChevronDownIcon,
   Columns3Icon,
@@ -74,9 +73,9 @@ import {
 } from "lucide-react"
 
 import { getUsers, type User } from "@/lib/api"
-import CreateUser from "./create-user"
-import { EditUserFields } from "./edit-user"
-import { DataTablePagination } from "./pagination"
+import CreateUser from "./Create-user"
+import { EditUserFields } from "./Edit-user"
+import { DataTablePagination } from "./Pagination"
 
 
 
@@ -323,8 +322,15 @@ export function DataTable() {
 
   return (
     <>
-      <div className="flex items-center justify-between px-4 lg:px-236">
+      <div className="flex items-center justify-between px-4  ">
         <div className="flex items-center gap-2">
+          <a
+            href="/users?limit=50/pdf"
+            download
+            className="inline-flex items-center gap-2 rounded-md bg-primary px-3 py-1 text-sm font-medium text-white hover:bg-primary/90"
+          >
+            Download
+          </a>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">

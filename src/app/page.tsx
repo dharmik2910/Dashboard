@@ -1,18 +1,9 @@
-import { AppSidebar } from "@/components/app-sidebar"
-import { DataTable } from "@/components/data-table"
+import { DataTable } from "@/components/Table"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 
 export default function Home() {
   return (
-    <SidebarProvider
-    // style={
-    //   {
-    //     "--sidebar-width": "calc(var(--spacing) * 72)",
-    //     "--header-height": "calc(var(--spacing) * 12)",
-    //   } as React.CSSProperties
-    // }
-    >
-      <AppSidebar variant="inset" />
+    <SidebarProvider >
       <SidebarInset>
         <div className="flex flex-1 flex-col">
           <div className="@container/main flex flex-1 flex-col gap-2">

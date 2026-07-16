@@ -1,11 +1,9 @@
-import { AppSidebar } from "@/components/app-sidebar"
-import { DataTable } from "@/components/data-table"
+import { DataTable } from "@/components/Table"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 
 export default function UsersPage() {
   return (
     <SidebarProvider>
-      <AppSidebar variant="inset" />
       <SidebarInset>
         <div className="flex flex-1 flex-col">
           <div className="@container/main flex flex-1 flex-col gap-2">

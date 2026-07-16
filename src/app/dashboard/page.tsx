@@ -1,6 +1,9 @@
-import { DataTable } from "@/components/data-table"
+import { DataTable } from "@/components/Table"
 
 export default function Page() {
+  const handleDownloadPdf = () => {
+  }
+
   return (
     <div className="flex flex-1 flex-col">
       <div className="@container/main flex flex-1 flex-col gap-2">
